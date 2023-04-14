@@ -2,7 +2,6 @@ const { UserDetails } = require("../../models/userModel");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 
-
 // Forget password send in mail
 const forgotPassword = async (req, res) => {
   try {
@@ -26,7 +25,7 @@ const forgotPassword = async (req, res) => {
         },
       });
       let details = {
-        from: "nodemaileraccess@gmail.com", // sender address
+        from: process.env.EMAIL, // sender address
         to: user.email, // list of receivers
         subject: "Hii Hello 👋", // Subject line
         text: `Reset link`, // plain text body
